@@ -309,13 +309,21 @@
     var _restoreSpecialJs = function(widgetOptions) {
         var widgetOptionsRoot = _getWidgetOptionsRoot(widgetOptions);
 
-        // "kartik-v/yii2-widget-datepicker"
+        /*// "kartik-v/yii2-widget-datepicker"
         var $hasDatepicker = $(widgetOptionsRoot.widgetItem).find('[data-krajee-datepicker]');
         if ($hasDatepicker.length > 0) {
             $hasDatepicker.each(function() {
                 $(this).parent().removeData().datepicker('remove');
                 $(this).parent().datepicker(eval($(this).attr('data-krajee-datepicker')));
             });
+        }*/
+        // "kartik-v/yii2-widget-datepicker"
+        var $hasDatepicker = $(widgetOptionsRoot.widgetItem).find('[data-krajee-kvdatepicker]');
+        if ($hasDatepicker.length > 0) {
+        $hasDatepicker.each(function() {
+        $(this).parent().removeData().kvDatepicker('initDPRemove');
+        $(this).parent().kvDatepicker(eval($(this).attr('data-krajee-kvdatepicker')));
+        });
         }
 
         // "kartik-v/yii2-widget-timepicker"
